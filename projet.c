@@ -13,9 +13,7 @@ int main(int argc, char **argv){
     char buffer[100];
     dico = arbreConsVide();
     strcpy(buffer, "gallon");
-    dico = dicoInsererMot(buffer,0, &dico);
-    dico = dicoInsererMot(buffer,0, &dico);
-    dico = dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
     strcpy(buffer, "munier");
     dicoInsererMot(buffer,0, &dico);
     strcpy(buffer, "abenia");
@@ -36,7 +34,9 @@ int main(int argc, char **argv){
     dicoInsererMot(buffer,0, &dico);
     dicoInsererMot(buffer,0, &dico);
     dicoInsererMot(buffer,0, &dico);
-    strcpy(buffer, "al");
+    strcpy(buffer, "albenia");
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
     dicoInsererMot(buffer,0, &dico);
     dicoInsererMot(buffer,0, &dico);
     dicoInsererMot(buffer,0, &dico);

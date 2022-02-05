@@ -20,38 +20,36 @@ void dicoAfficher(TArbre *a, char mot[]){
 };
 
 
-TArbre *dicoInsererMot(char mot[], int pos, TArbre **pa){
+void dicoInsererMot(char mot[], int pos, TArbre **pa){
     if(pos == strlen(mot)){
         if(!arbreEstVide(*pa) && (*pa)->lettre == '\0'){
             (*pa)->nbOcc++;
-            return *pa;
         }else{
             TArbre *fg_tmp = arbreCons('\0', 1, NULL, NULL);
             fg_tmp->FD = *pa;
             *pa = fg_tmp;
-            return fg_tmp;
         }
+        return;
     }
     if(arbreEstVide(*pa)){
         TArbre *newNode = arbreCons(mot[pos], 0, NULL, NULL);
-        newNode->FG = dicoInsererMot(mot, pos+1, pa);
-        return newNode;
+        *pa = newNode;
+        dicoInsererMot(mot, pos+1, &((*pa)->FG));
+        return;
     }
     if(mot[pos] == (*pa)->lettre){
         dicoInsererMot(mot, pos+1, &((*pa)->FG));
+        return;
     }else if(mot[pos] > (*pa)->lettre){
-        if(!arbreEstVide((*pa)->FD)){
-            dicoInsererMot(mot, pos, &((*pa)->FD));
-        }else{
-            (*pa)->FD = dicoInsererMot(mot, pos, &((*pa)->FD));
-        }
+        dicoInsererMot(mot, pos, &((*pa)->FD));
+        return;
     }else{
         TArbre *newNode = arbreCons(mot[pos], 0, NULL, NULL);
         newNode->FD = *pa;
-        newNode->FG = dicoInsererMot(mot, pos+1, &(newNode->FG));
         *pa = newNode;
+        dicoInsererMot(mot, pos+1, &(newNode->FG));
+        return;
     }
-    return *pa;
 };
 
 
