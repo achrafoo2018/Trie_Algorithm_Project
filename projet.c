@@ -13,23 +13,39 @@ int main(int argc, char **argv){
     char buffer[100];
     dico = arbreConsVide();
     strcpy(buffer, "gallon");
-    dicoInsererMot(buffer, dico);
+    dico = dicoInsererMot(buffer,0, &dico);
+    dico = dicoInsererMot(buffer,0, &dico);
+    dico = dicoInsererMot(buffer,0, &dico);
     strcpy(buffer, "munier");
-    dicoInsererMot(buffer, dico);
+    dicoInsererMot(buffer,0, &dico);
     strcpy(buffer, "abenia");
-    dicoInsererMot(buffer, dico);
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
     strcpy(buffer, "munier");
-    dicoInsererMot(buffer, dico);
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
     strcpy(buffer, "mumu");
-    dicoInsererMot(buffer, dico);
+    dicoInsererMot(buffer,0, &dico);
     strcpy(buffer, "alpha");
-    dicoInsererMot(buffer, dico);
-    strcpy(buffer, "alphabeta");
-    dicoInsererMot(buffer, dico);
+    dicoInsererMot(buffer,0, &dico);
+    strcpy(buffer, "alphabet");
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
     strcpy(buffer, "al");
-    dicoInsererMot(buffer, dico);
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
+    dicoInsererMot(buffer,0, &dico);
+    strcpy(buffer, "aa");
+    dicoInsererMot(buffer,0, &dico);
     dicoAfficher(dico, ""); 
-    printf("\n");
 
     // printf("\"%s\" \t -> %d\n", "gallon", dicoNbOcc("gallon",dico));
     // printf("\"%s\" \t\t -> %d\n", "mumu", dicoNbOcc("mumu",dico));
@@ -37,6 +53,6 @@ int main(int argc, char **argv){
     // printf("\"%s\" \t -> %d\n", "gastro", dicoNbOcc("gastro",dico));
     // printf("\"%s\" \t -> %d\n", "lespine", dicoNbOcc("lespine",dico));
     // printf("\"%s\" \t\t -> %d\n", "aaa", dicoNbOcc("aaa",dico)); 
-    // printf("\n"); 
+    printf("\n"); 
     /* -------------------------------------------------------*/
 }

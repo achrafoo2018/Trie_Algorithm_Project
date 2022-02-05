@@ -6,51 +6,52 @@
 
 
 void dicoAfficher(TArbre *a, char mot[]){
-    printf("%s\n", mot);
     if(arbreEstVide(a))
         return;
     if(a->lettre == '\0'){
-        printf("%s\t", mot);
+        printf("%s_%d         ", mot, a->nbOcc);
         dicoAfficher(a->FD, mot);
+        return;
     }
     char *tmp = strdup(mot);
-    strncat(tmp, &a->lettre, 1);
+    strncat(tmp, &(a->lettre), 1);
     dicoAfficher(a->FG, tmp);
     dicoAfficher(a->FD, mot);
 };
 
-void dicoInsererMot(char mot[], TArbre *pa){
-    TArbre *tmp = pa;
-    dicoInsererMotRecursive(mot, 0, tmp);
-}
 
-TArbre *dicoInsererMotRecursive(char mot[], int pos, TArbre *pa){
+TArbre *dicoInsererMot(char mot[], int pos, TArbre **pa){
     if(pos == strlen(mot)){
-        if(pa && pa->lettre == '\0'){
-            pa->nbOcc++;
+        if(!arbreEstVide(*pa) && (*pa)->lettre == '\0'){
+            (*pa)->nbOcc++;
+            return *pa;
         }else{
             TArbre *fg_tmp = arbreCons('\0', 1, NULL, NULL);
+            fg_tmp->FD = *pa;
+            *pa = fg_tmp;
             return fg_tmp;
         }
     }
-    if(arbreEstVide(pa)){
+    if(arbreEstVide(*pa)){
         TArbre *newNode = arbreCons(mot[pos], 0, NULL, NULL);
-        newNode->FG = dicoInsererMotRecursive(mot, pos+1, pa);
+        newNode->FG = dicoInsererMot(mot, pos+1, pa);
         return newNode;
     }
-    if(mot[pos] == pa->lettre){
-        dicoInsererMotRecursive(mot, pos+1, pa->FG);
-    }else if(mot[pos] > pa->lettre){
-        if(pa->FD){
-            dicoInsererMotRecursive(mot, pos, pa->FD);
+    if(mot[pos] == (*pa)->lettre){
+        dicoInsererMot(mot, pos+1, &((*pa)->FG));
+    }else if(mot[pos] > (*pa)->lettre){
+        if(!arbreEstVide((*pa)->FD)){
+            dicoInsererMot(mot, pos, &((*pa)->FD));
         }else{
-            pa->FD = dicoInsererMotRecursive(mot, pos, pa->FD);
+            (*pa)->FD = dicoInsererMot(mot, pos, &((*pa)->FD));
         }
     }else{
         TArbre *newNode = arbreCons(mot[pos], 0, NULL, NULL);
-        newNode->FD = pa;
-        newNode->FG = dicoInsererMotRecursive(mot, pos+1, pa->FG);
+        newNode->FD = *pa;
+        newNode->FG = dicoInsererMot(mot, pos+1, &(newNode->FG));
+        *pa = newNode;
     }
+    return *pa;
 };
 
 
