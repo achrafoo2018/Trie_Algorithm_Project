@@ -56,23 +56,23 @@ TArbre *dicoInsererMot(char mot[], int pos, TArbre **pa){
 
 
 int dicoNbOcc(char mot[], TArbre *a){
-
+    return 0;
 };
 
 
 int dicoNbMotsDifferents(TArbre *a){
-
+    return 0;
 }; 
 
 
 int dicoNbMotsTotal(TArbre *a){
-
+    return 0;
 };
 
 
 int piocherMot(char *motPioche){
     FILE* dico = NULL; // Le pointeur de fichier qui va contenir notre fichier
-    int nombreMots = 0, numMotChoisi = 0, i = 0;
+    int nombreMots = 0, numMotChoisi = 0;
     int caractereLu = 0;
     dico = fopen("dico.txt", "r"); // On ouvre le dictionnaire en lecture seule
 
