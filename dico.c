@@ -20,33 +20,33 @@ void dicoAfficher(TArbre *a, char mot[]){
 };
 
 
-void dicoInsererMot(char mot[], int pos, TArbre **pa){
+void dicoInsererMot(char mot[], int pos, TArbre **tree){
     if(pos == strlen(mot)){
-        if(!arbreEstVide(*pa) && (*pa)->lettre == '\0'){
-            (*pa)->nbOcc++;
-        }else{
-            TArbre *fg_tmp = arbreCons('\0', 1, NULL, NULL);
-            fg_tmp->FD = *pa;
-            *pa = fg_tmp;
+        if(!arbreEstVide(*tree) && (*tree)->lettre == '\0'){
+            (*tree)->nbOcc++;
+            return;
         }
+        TArbre *newNode = arbreCons('\0', 1, NULL, NULL);
+        newNode->FD = *tree;
+        *tree = newNode;
         return;
     }
-    if(arbreEstVide(*pa)){
+    if(arbreEstVide(*tree)){
         TArbre *newNode = arbreCons(mot[pos], 0, NULL, NULL);
-        *pa = newNode;
-        dicoInsererMot(mot, pos+1, &((*pa)->FG));
+        *tree = newNode;
+        dicoInsererMot(mot, pos+1, &((*tree)->FG));
         return;
     }
-    if(mot[pos] == (*pa)->lettre){
-        dicoInsererMot(mot, pos+1, &((*pa)->FG));
+    if(mot[pos] == (*tree)->lettre){
+        dicoInsererMot(mot, pos+1, &((*tree)->FG));
         return;
-    }else if(mot[pos] > (*pa)->lettre){
-        dicoInsererMot(mot, pos, &((*pa)->FD));
+    }else if(mot[pos] > (*tree)->lettre){
+        dicoInsererMot(mot, pos, &((*tree)->FD));
         return;
     }else{
         TArbre *newNode = arbreCons(mot[pos], 0, NULL, NULL);
-        newNode->FD = *pa;
-        *pa = newNode;
+        newNode->FD = *tree;
+        *tree = newNode;
         dicoInsererMot(mot, pos+1, &(newNode->FG));
         return;
     }
