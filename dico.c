@@ -1,27 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <string.h>
 #include "dico.h"
 
 
-void dicoAfficher(TArbre *a, char mot[]){
+void dicoAfficher(TArbre *a){
+    printf("\n******************** Dictionnaire *********************\n\n");
+    puts(" +------------------------------+--------------------+");
+    puts(" |             Mots             | Nombre d'occurance |");
+    puts(" +------------------------------+--------------------+");
+    char *mot = (char *) malloc(sizeof(char) * 100);
+    strcpy(mot, "");
+    dicoAfficherRec(a, mot);
+}
+void dicoAfficherRec(TArbre *a, char *mot){
     if(arbreEstVide(a))
         return;
     if(a->lettre == '\0'){
-        printf("%s_%d         ", mot, a->nbOcc);
-        dicoAfficher(a->FD, mot);
+        printf(" | %28s | %18d |\n", mot, a->nbOcc);
+        puts(" +------------------------------+--------------------+");
+        dicoAfficherRec(a->FD, mot);
         return;
     }
     char *tmp = strdup(mot);
     strncat(tmp, &(a->lettre), 1);
-    dicoAfficher(a->FG, tmp);
-    dicoAfficher(a->FD, mot);
+    dicoAfficherRec(a->FG, tmp);
+    dicoAfficherRec(a->FD, mot);
 };
 
 
-void dicoInsererMot(char mot[], int pos, TArbre **tree){
-    if(pos == strlen(mot)){
+void dicoInsererMot(char *mot, int pos, TArbre **tree){
+    if(pos == strlen(mot) || ( (pos == strlen(mot)-1) && mot[pos] == '\0') ){
         if(!arbreEstVide(*tree) && (*tree)->lettre == '\0'){
             (*tree)->nbOcc++;
             return;
@@ -53,27 +62,45 @@ void dicoInsererMot(char mot[], int pos, TArbre **tree){
 };
 
 
-int dicoNbOcc(char mot[], TArbre *a){
+int dicoNbOcc(char mot[], int pos, TArbre *a){
+    if(arbreEstVide(a))
+        return 0;
+    if(pos == strlen(mot)){
+        if(a->lettre == '\0')
+            return a->nbOcc;
+        else
+            return 0;
+    }
+    if(mot[pos] > a->lettre)
+        return dicoNbOcc(mot, pos, a->FD);
+    else if(mot[pos] == a->lettre)
+        return dicoNbOcc(mot, pos+1, a->FG);
     return 0;
+
 };
 
 
 int dicoNbMotsDifferents(TArbre *a){
+    if(!arbreEstVide(a))
+        return (a->lettre == '\0') + dicoNbMotsDifferents(a->FD) 
+                + dicoNbMotsDifferents(a->FG);
     return 0;
 }; 
 
 
 int dicoNbMotsTotal(TArbre *a){
+    if(!arbreEstVide(a))
+        return a->nbOcc + dicoNbMotsTotal(a->FD) 
+                + dicoNbMotsTotal(a->FG);
     return 0;
 };
 
 
-int piocherMot(char *motPioche){
+int piocherMot(char **motPioche){
     FILE* dico = NULL; // Le pointeur de fichier qui va contenir notre fichier
     int nombreMots = 0, numMotChoisi = 0;
     int caractereLu = 0;
     dico = fopen("dico.txt", "r"); // On ouvre le dictionnaire en lecture seule
-
     // On vérifie si on a réussi à ouvrir le dictionnaire
     if (dico == NULL) // Si on n'a PAS réussi à ouvrir le fichier
     {
@@ -101,16 +128,14 @@ int piocherMot(char *motPioche){
     }
     /* Le curseur du fichier est positionné au bon endroit.
     On n'a plus qu'à faire un fgets qui lira la ligne */
-    fgets(motPioche, 100, dico);
-
+    fgets(*motPioche, 100, dico);
     // On vire le \n à la fin
-    motPioche[strlen(motPioche) - 1] = '\0';
+    (*motPioche)[strlen(*motPioche) - 1] = '\0';
     fclose(dico);
 
     return 1; // Tout s'est bien passé, on retourne 1
 }
 
 int nombreAleatoire(int nombreMax){
-    srand(time(NULL));
     return (rand() % nombreMax);
 }

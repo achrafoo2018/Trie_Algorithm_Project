@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "dico.h": "c"
+        "dico.h": "c",
+        "arbre.h": "c",
+        "stdlib.h": "c",
+        "time.h": "c"
     }
 }
