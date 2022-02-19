@@ -96,7 +96,7 @@ int dicoNbMotsDifferents(TArbre *a){
 
 int dicoNbMotsTotal(TArbre *a){
     if(!arbreEstVide(a))
-        return a->nbOcc + dicoNbMotsTotal(a->FD) 
+        return (a->lettre == '\0' ? a->nbOcc : 0) + dicoNbMotsTotal(a->FD) 
                 + dicoNbMotsTotal(a->FG);
     return 0;
 };

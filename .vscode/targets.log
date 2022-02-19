@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+ 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Feb 18 21:01:22 2022
+# Make data base, printed on Sat Feb 19 12:23:00 2022
 
 # Variables
 
@@ -161,7 +163,7 @@ SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-e63cd6a7-891f-4daa-8f40-0d5626fd957a.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5dc7be1a-127d-437e-b80d-8c4d329cc422.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -221,11 +223,11 @@ LC_ALL = C
 # environment
 CONDA_PYTHON_EXE = /home/kenzu/anaconda3/bin/python
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/ac76b76e_0ab6_48e0_8081_d04c1fc7edbf
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/d9bfd721_c1d5_42ae_aa8e_1e37a27a0727
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.208
+GNOME_TERMINAL_SERVICE = :1.2263
 # default
 SUFFIXES := 
 # environment
@@ -247,7 +249,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 735436
+VSCODE_PID = 1047796
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -276,6 +278,7 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
+ 
 # Not a target:
 arbre.c:
 #  Implicit rule search has not been done.
@@ -318,9 +321,6 @@ projet.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
-make: *** No rule to make target 'all'.  Stop.
- 
 
 main: dico.h dico.c arbre.h arbre.c projet.c
 #  Implicit rule search has not been done.
@@ -343,6 +343,6 @@ main: dico.h dico.c arbre.h arbre.c projet.c
 # strcache performance: lookups = 29 / hit rate = 37%
 # hash-table stats:
 # Load=18/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Fri Feb 18 21:01:22 2022
+# Finished Make data base on Sat Feb 19 12:23:00 2022
 
  
