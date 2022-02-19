@@ -7,23 +7,29 @@
 void dicoAfficher(TArbre *a){
     printf("\n******************** Dictionnaire *********************\n\n");
     puts(" +------------------------------+--------------------+");
-    puts(" |             Mots             | Nombre d'occurance |");
+    puts(" |             \033[1mMots\033[0m             | \033[1mNombre d'occurance\033[0m |");
     puts(" +------------------------------+--------------------+");
-    char *mot = (char *) malloc(sizeof(char) * 100);
-    strcpy(mot, "");
-    dicoAfficherRec(a, mot);
+    dicoAfficherRec(a, "");
+    printf(" | \033[1m%-28s\033[0m | \033[1m%-18d\033[0m |\n", "Mots Total", dicoNbMotsTotal(a));
+    puts(" +------------------------------+--------------------+");
+    printf(" | \033[1m%-28s\033[0m | \033[1m%-18d\033[0m |\n", "Mots Differents", dicoNbMotsDifferents(a));
+    puts(" +------------------------------+--------------------+");
+
 }
 void dicoAfficherRec(TArbre *a, char *mot){
     if(arbreEstVide(a))
         return;
     if(a->lettre == '\0'){
-        printf(" | %28s | %18d |\n", mot, a->nbOcc);
+        printf(" | %-28s | %-18d |\n", mot, a->nbOcc);
         puts(" +------------------------------+--------------------+");
         dicoAfficherRec(a->FD, mot);
         return;
     }
-    char *tmp = strdup(mot);
-    strncat(tmp, &(a->lettre), 1);
+    char *tmp = (char *) malloc(sizeof(char) * 100);
+    strcpy(tmp, mot);
+    int len = strlen(tmp);
+    tmp[len] = a->lettre;
+    tmp[len+1] = '\0';
     dicoAfficherRec(a->FG, tmp);
     dicoAfficherRec(a->FD, mot);
 };

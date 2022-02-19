@@ -20,13 +20,10 @@ int main(int argc, char **argv){
     // printf("\"%s\" \t -> %d\n", "gastro", dicoNbOcc("gastro", 0, dico));
     // printf("\"%s\" \t\t -> %d\n", "aaa", dicoNbOcc("aaa", 0, dico)); 
     char *mot = (char * )malloc(sizeof(char) * 100);
-    for(int i=0; i < 200; ++i){
+    for(int i=0; i < 100; ++i){
         piocherMot(&mot);
         dicoInsererMot(mot, 0, &dico);
     }
-    printf("\"%s\" \t\t -> %d\n", "Nombre des mots différents", dicoNbMotsDifferents(dico)); 
-    printf("\"%s\" \t\t -> %d\n", "Nombre des mots total", dicoNbMotsTotal(dico));     
-
     dicoAfficher(dico);
     printf("\n"); 
     /* -------------------------------------------------------*/
