@@ -9,20 +9,20 @@ void dicoAfficher(TArbre *a){
     puts(" +------------------------------+--------------------+");
     puts(" |             \033[1mMots\033[0m             | \033[1mNombre d'occurance\033[0m |");
     puts(" +------------------------------+--------------------+");
-    dicoAfficherRec(a, "");
+    dicoAfficherRecursive(a, "");
     printf(" | \033[1m%-28s\033[0m | \033[1m%-18d\033[0m |\n", "Mots Total", dicoNbMotsTotal(a));
     puts(" +------------------------------+--------------------+");
     printf(" | \033[1m%-28s\033[0m | \033[1m%-18d\033[0m |\n", "Mots Differents", dicoNbMotsDifferents(a));
     puts(" +------------------------------+--------------------+");
 
 }
-void dicoAfficherRec(TArbre *a, char *mot){
+void dicoAfficherRecursive(TArbre *a, char *mot){
     if(arbreEstVide(a))
         return;
     if(a->lettre == '\0'){
         printf(" | %-28s | %-18d |\n", mot, a->nbOcc);
         puts(" +------------------------------+--------------------+");
-        dicoAfficherRec(a->FD, mot);
+        dicoAfficherRecursive(a->FD, mot);
         return;
     }
     char *tmp = (char *) malloc(sizeof(char) * 100);
@@ -30,8 +30,8 @@ void dicoAfficherRec(TArbre *a, char *mot){
     int len = strlen(tmp);
     tmp[len] = a->lettre;
     tmp[len+1] = '\0';
-    dicoAfficherRec(a->FG, tmp);
-    dicoAfficherRec(a->FD, mot);
+    dicoAfficherRecursive(a->FG, tmp);
+    dicoAfficherRecursive(a->FD, mot);
 };
 
 

@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Feb 19 12:23:00 2022
+# Make data base, printed on Sat Feb 19 20:11:38 2022
 
 # Variables
 
@@ -79,7 +79,7 @@ LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 LC_NAME = ar_TN.UTF-8
 # environment
-VSCODE_CWD = /home/kenzu/algo_Project
+VSCODE_CWD = /home/kenzu
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -163,7 +163,7 @@ SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5dc7be1a-127d-437e-b80d-8c4d329cc422.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-44ce5330-03d3-4e01-be2b-71b967da1b2a.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -205,6 +205,8 @@ GDK_BACKEND = x11
 # environment
 LC_PAPER = ar_TN.UTF-8
 # environment
+NO_AT_BRIDGE = 1
+# environment
 QT_ACCESSIBILITY = 1
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
@@ -223,7 +225,7 @@ LC_ALL = C
 # environment
 CONDA_PYTHON_EXE = /home/kenzu/anaconda3/bin/python
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/d9bfd721_c1d5_42ae_aa8e_1e37a27a0727
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/44254454_72f1_4a5c_8b61_f1bda2d2903c
 # automatic
 ^F = $(notdir $^)
 # environment
@@ -249,11 +251,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 1047796
+VSCODE_PID = 1051981
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
-# Load=120/1024=12%, Rehash=0, Collisions=19/145=13%
+# Load=121/1024=12%, Rehash=0, Collisions=19/146=13%
 
 # Pattern-specific Variable Values
 
@@ -278,9 +280,9 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
- 
 # Not a target:
 arbre.c:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -343,6 +345,6 @@ main: dico.h dico.c arbre.h arbre.c projet.c
 # strcache performance: lookups = 29 / hit rate = 37%
 # hash-table stats:
 # Load=18/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Sat Feb 19 12:23:00 2022
+# Finished Make data base on Sat Feb 19 20:11:38 2022
 
  

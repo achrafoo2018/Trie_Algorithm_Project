@@ -5,7 +5,7 @@ int piocherMot(char **motPioche);
 int nombreAleatoire(int nombreMax);
 
 void dicoAfficher(TArbre *a);
-void dicoAfficherRec(TArbre *a, char *mot);
+void dicoAfficherRecursive(TArbre *a, char *mot);
 void dicoInsererMot(char *mot, int pos, TArbre **pa);
 int dicoNbOcc(char mot[], int pos, TArbre *a);
 int dicoNbMotsDifferents(TArbre *a); 
