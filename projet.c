@@ -20,7 +20,7 @@ int main(int argc, char **argv){
     // printf("\"%s\" \t -> %d\n", "gastro", dicoNbOcc("gastro", 0, dico));
     // printf("\"%s\" \t\t -> %d\n", "aaa", dicoNbOcc("aaa", 0, dico)); 
     char *mot = (char * )malloc(sizeof(char) * 100);
-    for(int i=0; i < 100; ++i){
+    for(int i=0; i < 1000; ++i){
         piocherMot(&mot);
         dicoInsererMot(mot, 0, &dico);
     }

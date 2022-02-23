@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Feb 19 20:11:38 2022
+# Make data base, printed on Wed Feb 23 14:48:06 2022
 
 # Variables
 
@@ -47,7 +47,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:53658
+JOURNAL_STREAM = 8:49812
 # makefile (from 'Makefile', line 1)
 CFLAGS := -Wall -g
 # environment
@@ -73,13 +73,13 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 _ = /usr/bin/code
 # environment
-MANAGERPID = 9742
+MANAGERPID = 8014
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 LC_NAME = ar_TN.UTF-8
 # environment
-VSCODE_CWD = /home/kenzu
+VSCODE_CWD = /home/kenzu/algo_Project
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -87,7 +87,7 @@ PATH = /home/kenzu/anaconda3/condabin:/home/kenzu/.local/bin:/usr/local/sbin:/us
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/kenzu-X550JX:@/tmp/.ICE-unix/9983,unix/kenzu-X550JX:/tmp/.ICE-unix/9983
+SESSION_MANAGER = local/kenzu-X550JX:@/tmp/.ICE-unix/9816,unix/kenzu-X550JX:/tmp/.ICE-unix/9816
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -97,7 +97,7 @@ VSCODE_LOG_STACK = false
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=bba3088b-e2fb-4312-a784-1c83cbaed426&iid=bba3088b-e2fb-4312-a784-1c83cbaed426&sid=bba3088b-e2fb-4312-a784-1c83cbaed426","uploadToServer":true}
 # environment
-INVOCATION_ID = 0d1d4bb93f1e42748ffbd3232e1a5f65
+INVOCATION_ID = 2eaa483ef452401c9afef8112864ffff
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -119,7 +119,7 @@ PWD = /home/kenzu/algo_Project
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 9945
+SSH_AGENT_PID = 9777
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -163,7 +163,7 @@ SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-44ce5330-03d3-4e01-be2b-71b967da1b2a.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-6dd133e6-dffe-4747-8c45-28490a8c972a.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -205,7 +205,7 @@ GDK_BACKEND = x11
 # environment
 LC_PAPER = ar_TN.UTF-8
 # environment
-NO_AT_BRIDGE = 1
+LC_IDENTIFICATION = ar_TN.UTF-8
 # environment
 QT_ACCESSIBILITY = 1
 # environment
@@ -225,11 +225,13 @@ LC_ALL = C
 # environment
 CONDA_PYTHON_EXE = /home/kenzu/anaconda3/bin/python
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/44254454_72f1_4a5c_8b61_f1bda2d2903c
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/df390bb3_ab8a_49a8_bcd7_a9f00e0d9863
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.2263
+GNOME_TERMINAL_SERVICE = :1.464
 # default
 SUFFIXES := 
 # environment
@@ -241,7 +243,7 @@ WINDOWPATH = 2
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
-LC_IDENTIFICATION = ar_TN.UTF-8
+GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
 # environment
@@ -251,11 +253,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 1051981
+VSCODE_PID = 1017045
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
-# Load=121/1024=12%, Rehash=0, Collisions=19/146=13%
+# Load=122/1024=12%, Rehash=0, Collisions=20/147=14%
 
 # Pattern-specific Variable Values
 
@@ -282,7 +284,6 @@ all:
 
 # Not a target:
 arbre.c:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -296,6 +297,7 @@ dico.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-02-05 23:07:55.96278341
 #  File has been updated.
 #  Successfully updated.
@@ -345,6 +347,6 @@ main: dico.h dico.c arbre.h arbre.c projet.c
 # strcache performance: lookups = 29 / hit rate = 37%
 # hash-table stats:
 # Load=18/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Sat Feb 19 20:11:38 2022
+# Finished Make data base on Wed Feb 23 14:48:06 2022
 
  
