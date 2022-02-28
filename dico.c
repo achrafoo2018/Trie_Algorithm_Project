@@ -16,6 +16,8 @@ void dicoAfficher(TArbre *a){
     puts(" +------------------------------+--------------------+");
 
 }
+
+
 void dicoAfficherRecursive(TArbre *a, char *mot){
     if(arbreEstVide(a))
         return;
@@ -25,9 +27,9 @@ void dicoAfficherRecursive(TArbre *a, char *mot){
         dicoAfficherRecursive(a->FD, mot);
         return;
     }
-    char *tmp = (char *) malloc(sizeof(char) * 100);
+    int len = strlen(mot);
+    char *tmp = (char *) malloc(sizeof(char) * (len+2));
     strcpy(tmp, mot);
-    int len = strlen(tmp);
     tmp[len] = a->lettre;
     tmp[len+1] = '\0';
     dicoAfficherRecursive(a->FG, tmp);
@@ -36,8 +38,8 @@ void dicoAfficherRecursive(TArbre *a, char *mot){
 
 
 void dicoInsererMot(char *mot, int pos, TArbre **tree){
-    if(pos == strlen(mot) || ( (pos == strlen(mot)-1) && mot[pos] == '\0') ){
-        if(!arbreEstVide(*tree) && (*tree)->lettre == '\0'){
+    if(pos == strlen(mot) || ((pos == strlen(mot)-1) && mot[pos] == '\0') ){  // Check wether we are at the end of the word
+        if(!arbreEstVide(*tree) && (*tree)->lettre == '\0'){  // if word already exist than increment nbOcc
             (*tree)->nbOcc++;
             return;
         }
@@ -52,18 +54,15 @@ void dicoInsererMot(char *mot, int pos, TArbre **tree){
         dicoInsererMot(mot, pos+1, &((*tree)->FG));
         return;
     }
-    if(mot[pos] == (*tree)->lettre){
+    if(mot[pos] == (*tree)->lettre)
         dicoInsererMot(mot, pos+1, &((*tree)->FG));
-        return;
-    }else if(mot[pos] > (*tree)->lettre){
+    else if(mot[pos] > (*tree)->lettre)
         dicoInsererMot(mot, pos, &((*tree)->FD));
-        return;
-    }else{
+    else{
         TArbre *newNode = arbreCons(mot[pos], 0, NULL, NULL);
         newNode->FD = *tree;
         *tree = newNode;
         dicoInsererMot(mot, pos+1, &(newNode->FG));
-        return;
     }
 };
 
@@ -75,14 +74,13 @@ int dicoNbOcc(char mot[], int pos, TArbre *a){
         if(a->lettre == '\0')
             return a->nbOcc;
         else
-            return 0;
+            return 0; // Word does not exist in the dictionary
     }
     if(mot[pos] > a->lettre)
         return dicoNbOcc(mot, pos, a->FD);
     else if(mot[pos] == a->lettre)
         return dicoNbOcc(mot, pos+1, a->FG);
     return 0;
-
 };
 
 
@@ -95,10 +93,11 @@ int dicoNbMotsDifferents(TArbre *a){
 
 
 int dicoNbMotsTotal(TArbre *a){
-    if(!arbreEstVide(a))
-        return (a->lettre == '\0' ? a->nbOcc : 0) + dicoNbMotsTotal(a->FD) 
+    if(arbreEstVide(a))
+        return 0;
+    // Visit each node of the tree and return number of occurance of \0 nodes; 
+    return (a->lettre == '\0' ? a->nbOcc : 0) + dicoNbMotsTotal(a->FD) 
                 + dicoNbMotsTotal(a->FG);
-    return 0;
 };
 
 
