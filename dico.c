@@ -7,7 +7,7 @@
 void dicoAfficher(TArbre *a){
     printf("\n******************** Dictionnaire *********************\n\n");
     puts(" +------------------------------+--------------------+");
-    puts(" |             \033[1mMots\033[0m             | \033[1mNombre d'occurance\033[0m |");
+    puts(" |             \033[1mMots\033[0m             | \033[1mNombre d'occurrence\033[0m |");
     puts(" +------------------------------+--------------------+");
     dicoAfficherRecursive(a, "");
     printf(" | \033[1m%-28s\033[0m | \033[1m%-18d\033[0m |\n", "Mots Total", dicoNbMotsTotal(a));
@@ -30,9 +30,11 @@ void dicoAfficherRecursive(TArbre *a, char *mot){
     int len = strlen(mot);
     char *tmp = (char *) malloc(sizeof(char) * (len+2));
     strcpy(tmp, mot);
-    tmp[len] = a->lettre;
+    tmp[len] = a->lettre; // ajouter la lettre a la fin du chaine
     tmp[len+1] = '\0';
+    // on va au fils gauche en concaténons la lettre actuelle
     dicoAfficherRecursive(a->FG, tmp);
+    // fils droit sans l'ajout de la ..
     dicoAfficherRecursive(a->FD, mot);
 };
 
@@ -43,7 +45,7 @@ void dicoInsererMot(char *mot, int pos, TArbre **tree){
             (*tree)->nbOcc++;
             return;
         }
-        TArbre *newNode = arbreCons('\0', 1, NULL, NULL);
+        TArbre *newNode = arbreCons('\0', 1, NULL, NULL); // word does not exist then we create new node \0
         newNode->FD = *tree;
         *tree = newNode;
         return;
@@ -85,17 +87,17 @@ int dicoNbOcc(char mot[], int pos, TArbre *a){
 
 
 int dicoNbMotsDifferents(TArbre *a){
-    if(!arbreEstVide(a))
-        return (a->lettre == '\0') + dicoNbMotsDifferents(a->FD) 
-                + dicoNbMotsDifferents(a->FG);
-    return 0;
+    if(arbreEstVide(a))
+        return 0;
+    return (a->lettre == '\0') + dicoNbMotsDifferents(a->FD) 
+        + dicoNbMotsDifferents(a->FG);
 }; 
 
 
 int dicoNbMotsTotal(TArbre *a){
     if(arbreEstVide(a))
         return 0;
-    // Visit each node of the tree and return number of occurance of \0 nodes; 
+    // Visit each node of the tree and return number of occurrence of \0 nodes; 
     return (a->lettre == '\0' ? a->nbOcc : 0) + dicoNbMotsTotal(a->FD) 
                 + dicoNbMotsTotal(a->FG);
 };
@@ -106,6 +108,13 @@ int piocherMot(char **motPioche){
     int nombreMots = 0, numMotChoisi = 0;
     int caractereLu = 0;
     dico = fopen("dico.txt", "r"); // On ouvre le dictionnaire en lecture seule
+    fseek(dico, 0, SEEK_END);
+    int size = ftell(dico); // nombre de ligne du fichier
+    if(size == 0){ // si le fichier est vide
+        printf("\nLe fichier est vide\n");
+        return 0; // On retourne 0 pour indiquer que le fichier est vide
+    }
+    rewind(dico);
     // On vérifie si on a réussi à ouvrir le dictionnaire
     if (dico == NULL) // Si on n'a PAS réussi à ouvrir le fichier
     {
@@ -113,7 +122,6 @@ int piocherMot(char **motPioche){
         return 0; // On retourne 0 pour indiquer que la fonction a échoué
         // À la lecture du return, la fonction s'arrête immédiatement.
     }
-
     // On compte le nombre de mots dans le fichier (il suffit de compter les
     // entrées \n
     do{

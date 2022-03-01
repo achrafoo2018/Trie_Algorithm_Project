@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
- 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Feb 28 23:16:50 2022
+# Make data base, printed on Tue Mar  1 20:49:24 2022
 
 # Variables
 
@@ -47,7 +45,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:47058
+JOURNAL_STREAM = 8:55971
 # makefile (from 'Makefile', line 1)
 CFLAGS := -Wall -g
 # environment
@@ -73,7 +71,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 _ = /usr/bin/code
 # environment
-MANAGERPID = 8092
+MANAGERPID = 63888
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -87,7 +85,7 @@ PATH = /home/kenzu/anaconda3/condabin:/home/kenzu/.local/bin:/usr/local/sbin:/us
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/kenzu-X550JX:@/tmp/.ICE-unix/9876,unix/kenzu-X550JX:/tmp/.ICE-unix/9876
+SESSION_MANAGER = local/kenzu-X550JX:@/tmp/.ICE-unix/64109,unix/kenzu-X550JX:/tmp/.ICE-unix/64109
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -97,7 +95,7 @@ VSCODE_LOG_STACK = false
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=bba3088b-e2fb-4312-a784-1c83cbaed426&iid=bba3088b-e2fb-4312-a784-1c83cbaed426&sid=bba3088b-e2fb-4312-a784-1c83cbaed426","uploadToServer":true}
 # environment
-INVOCATION_ID = 0fdb3d08c9ae4e4db4a11ff035537ae7
+INVOCATION_ID = 2f575773cbaf47e09d9bad66a72160e4
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -119,7 +117,7 @@ PWD = /home/kenzu/algo_Project
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 9838
+SSH_AGENT_PID = 64072
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -163,7 +161,7 @@ SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-6b7da802-0b4f-40c5-be77-356acd5c0ead.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-7b4e2487-308b-44c9-bfc4-ae8274b899d7.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -227,11 +225,11 @@ CONDA_PYTHON_EXE = /home/kenzu/anaconda3/bin/python
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/bb15e036_e6a8_4e0c_93fb_262ca9f01cd2
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/059e6ad2_42e1_42f0_b030_73a85441d500
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.110
+GNOME_TERMINAL_SERVICE = :1.89
 # default
 SUFFIXES := 
 # environment
@@ -253,7 +251,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 107695
+VSCODE_PID = 260591
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -290,6 +288,9 @@ arbre.c:
 
 # Not a target:
 dico.c:
+ 
+make: *** No rule to make target 'all'.  Stop.
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -346,6 +347,6 @@ main: dico.h dico.c arbre.h arbre.c projet.c
 # strcache performance: lookups = 29 / hit rate = 37%
 # hash-table stats:
 # Load=18/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Mon Feb 28 23:16:50 2022
+# Finished Make data base on Tue Mar  1 20:49:24 2022
 
  

@@ -1,4 +1,10 @@
 cuivre
+Maison
+Bleu
+Avion
+Abeille
+Immeuble
+Garage
 glacier
 XYLOPHONE
 XYLOPHONE

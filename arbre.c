@@ -4,7 +4,7 @@
 // ***********arbre.c*******
 
 TArbre* arbreConsVide(){
-    TArbre* arbre=NULL;
+    TArbre* arbre=NULL; 
     return arbre; 
 }
 
@@ -43,7 +43,7 @@ TArbre* arbreFilsDroit(TArbre* a){
 }
 
 void arbreSuppr(TArbre* a){
-    if(a!=NULL){
+    if(!arbreEstVide(a)){
         arbreSuppr(arbreFilsGauche(a));
         arbreSuppr(arbreFilsDroit(a));
         free(a);

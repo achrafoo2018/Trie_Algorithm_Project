@@ -20,11 +20,15 @@ int main(int argc, char **argv){
     // printf("\"%s\" \t -> %d\n", "gastro", dicoNbOcc("gastro", 0, dico));
     // printf("\"%s\" \t\t -> %d\n", "aaa", dicoNbOcc("aaa", 0, dico)); 
     char *mot = (char * )malloc(sizeof(char) * 100);
-    for(int i=0; i < 1000; ++i){
-        piocherMot(&mot);
+    for(int i=0; i < 100; ++i){ // loop to insert random 100 words from dico.txt
+        int ret = piocherMot(&mot);
+        if(ret == 0)
+            break;
         dicoInsererMot(mot, 0, &dico);
     }
     dicoAfficher(dico);
     printf("\n"); 
+
+    // printf("\"%s\" \t\t -> %d\n", "ANTICONSTITUTIONNELLEMENT", dicoNbOcc("ANTICONSTITUTIONNELLEMENT", 0, dico)); 
     /* -------------------------------------------------------*/
 }
